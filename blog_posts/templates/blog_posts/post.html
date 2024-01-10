@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Post {{post.pk}}{% endblock title %}
+
+{% block content %}
+<div class="article">
+    <h2><span>{{post.title}}</span></h2>
+    <div class="clr"></div>
+    <img src="{{ post.image.url }}" width="583" height="346" alt="" class="fl" />
+    <p>{{post.content}}</p>
+    <p><a href="#"><strong>Comments ({{post.comments.count}})</strong></a> <span>&nbsp;•&nbsp;</span> {{post.created_at}} <span>&nbsp;•&nbsp;</span></p>
+  </div>
+
+  <div class="article">
+    <h2>({{post.comments.count}}) Responses</h2>
+    <p>{{post.comments}}</p>
+    <div class="clr"></div>
+    {% for comment in post.comments.all %}
+    <div class="comment"> <a href="#"><img src="{% static "Images/userpic.gif" %}" width="40" height="40" alt="" class="userpic"></a>
+      <p><a href="#">{{comment.name}}</a> Says:<br>
+        {{comment.created_at}}</p>
+      <p>{{comment.content}}</p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

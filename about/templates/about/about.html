@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block title %}About Me{% endblock title %}
+
+{% block content %}
+
+{% for about in abouts %}
+<div class="article">
+    <h2><span>{{ about.title }}</span></h2>
+    <div class="clr"></div>
+    {% if about.image %}
+    <img src="{{ about.image.url }}" width="60%" alt="" class="fl"/>
+    {% endif %}
+    <p>{{ about.content }}</p>
+  </div>
+  <div class="clr"></div>
+{% endfor %}
+
+{% endblock content %}

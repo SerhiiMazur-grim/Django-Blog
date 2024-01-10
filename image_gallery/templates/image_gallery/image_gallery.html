@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+{% block title %}Image Gallery{% endblock title %}
+
+{% block content %}
+
+{% for image in images %}
+<div class="article">
+    <h2><span>{{ image.title }}</span></h2>
+    <div class="clr"></div>
+    <p><span class="date">{{ image.created_at }}</span></p>
+    <img src="{{ image.image.url }}" alt="" class="fl" style="width: 100%;"/>
+  </div>
+  <div class="clr"></div>
+{% endfor %}
+
+{% endblock content %}

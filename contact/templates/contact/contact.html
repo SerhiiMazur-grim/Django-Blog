@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Contact Me{% endblock title %}
+
+{% block content %}
+
+<div class="article">
+    <h2><span>Contact</span></h2>
+    <div class="clr"></div>
+    <p>{{ contact_info.content }}</p>
+  </div>
+  <div class="clr"></div>
+
+  <div class="article">
+    <h2><span><cufon class="cufon cufon-canvas" alt="Send " style="width: 67px; height: 24px;"><canvas width="117" height="34" style="width: 117px; height: 34px; top: -5px; left: -15px;"></canvas><cufontext>Send </cufontext></cufon><cufon class="cufon cufon-canvas" alt="us" style="width: 29px; height: 24px;"><canvas width="72" height="34" style="width: 72px; height: 34px; top: -5px; left: -15px;"></canvas><cufontext>us</cufontext></cufon></span><cufon class="cufon cufon-canvas" alt=" " style="width: 7px; height: 24px;"><canvas width="57" height="34" style="width: 57px; height: 34px; top: -5px; left: -15px;"></canvas><cufontext> </cufontext></cufon><cufon class="cufon cufon-canvas" alt="mail" style="width: 50px; height: 24px;"><canvas width="99" height="34" style="width: 99px; height: 34px; top: -5px; left: -15px;"></canvas><cufontext>mail</cufontext></cufon></h2>
+    <div class="clr"></div>
+    <form action="#" method="post" id="sendemail">
+        {% csrf_token %}
+      <ol>
+        <li>
+          <label for="name">Name (required)</label>
+          {{form.name }}
+        </li>
+        <li>
+          <label for="email">Email Address (required)</label>
+          {{form.email }}
+        </li>
+        <li>
+          <label for="message">Your Message</label>
+          {{form.message }}
+        </li>
+        <li>
+          <input type="image" name="imageField" id="imageField" src="{% static "Images/submit.gif" %}" class="send">
+          <div class="clr"></div>
+        </li>
+      </ol>
+    </form>
+  </div>
+
+
+{% endblock content %}
